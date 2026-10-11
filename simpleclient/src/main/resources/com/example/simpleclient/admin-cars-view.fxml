@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import com.example.simpleclient.ResponsiveColumns?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        stylesheets="@styles.css"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.example.simpleclient.AdminCarsController">
+
+    <content>
+
+        <VBox
+                spacing="25"
+                styleClass="admin-page">
+
+            <padding>
+                <Insets
+                        top="35"
+                        right="40"
+                        bottom="50"
+                        left="40" />
+            </padding>
+
+            <!-- HEADER -->
+
+            <HBox alignment="CENTER_LEFT">
+
+                <VBox spacing="4">
+
+                    <Label
+                            text="Car Management"
+                            styleClass="admin-page-title" />
+
+                    <Label
+                            text="Manage vehicles displayed in the CRUISE customer app."
+                            styleClass="admin-page-subtitle" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button
+                        text="+  Add Vehicle"
+                        onAction="#newCar"
+                        styleClass="admin-primary-button" />
+
+                <Button
+                        text="↻"
+                        onAction="#refreshCars"
+                        styleClass="admin-refresh-button" />
+
+            </HBox>
+
+            <!-- CONTENT -->
+
+            <ResponsiveColumns>
+
+                <!-- VEHICLE LIST -->
+
+                <VBox
+                        spacing="14"
+                        prefWidth="280"
+                        minWidth="280"
+                        styleClass="admin-car-list-panel">
+
+                    <Label
+                            text="VEHICLES"
+                            styleClass="admin-field-label" />
+
+                    <ListView
+                            fx:id="carListView"
+                            prefHeight="590" minHeight="0"
+                            VBox.vgrow="ALWAYS"
+                            styleClass="admin-car-list" />
+
+                </VBox>
+
+                <!-- FORM -->
+
+                <VBox
+                        spacing="18"
+                        HBox.hgrow="ALWAYS"
+                        styleClass="admin-car-form">
+
+                    <HBox alignment="CENTER_LEFT">
+
+                        <Label
+                                fx:id="formTitleLabel"
+                                text="Add New Vehicle"
+                                styleClass="admin-form-title" />
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label
+                                fx:id="adminCarStatusLabel"
+                                text="Ready"
+                                styleClass="admin-form-status" />
+
+                    </HBox>
+
+                    <!-- IMAGE -->
+
+                    <HBox
+                            spacing="20"
+                            alignment="CENTER_LEFT">
+
+                        <StackPane
+                                prefWidth="220"
+                                prefHeight="135"
+                                minWidth="220"
+                                minHeight="135"
+                                styleClass="admin-image-preview">
+
+                            <ImageView
+                                    fx:id="imagePreview"
+                                    fitWidth="220"
+                                    fitHeight="135"
+                                    preserveRatio="true"
+                                    visible="false" />
+
+                            <Label
+                                    fx:id="imagePlaceholder"
+                                    text="CAR IMAGE"
+                                    styleClass="admin-image-placeholder" />
+
+                        </StackPane>
+
+                        <VBox spacing="9">
+
+                            <Label
+                                    text="VEHICLE IMAGE"
+                                    styleClass="admin-field-label" />
+
+                            <Label
+                                    fx:id="selectedImageLabel"
+                                    text="No image selected"
+                                    maxWidth="280"
+                                    wrapText="true"
+                                    styleClass="admin-image-name" />
+
+                            <Button
+                                    text="Choose Image"
+                                    onAction="#chooseImage"
+                                    styleClass="admin-secondary-button" />
+
+                            <Label
+                                    text="JPG, PNG or WEBP"
+                                    styleClass="admin-help-text" />
+
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- BRAND + MODEL -->
+
+                    <HBox spacing="14">
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="BRAND"
+                                    styleClass="admin-field-label" />
+
+                            <TextField
+                                    fx:id="brandField"
+                                    promptText="e.g. Toyota"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="MODEL"
+                                    styleClass="admin-field-label" />
+
+                            <TextField
+                                    fx:id="modelField"
+                                    promptText="e.g. Corolla"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- PRICE + CATEGORY -->
+
+                    <HBox spacing="14">
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="PRICE / DAY (RM)"
+                                    styleClass="admin-field-label" />
+
+                            <TextField
+                                    fx:id="priceField"
+                                    promptText="120.00"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="CATEGORY"
+                                    styleClass="admin-field-label" />
+
+                            <ComboBox
+                                    fx:id="categoryBox"
+                                    maxWidth="Infinity"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- TRANSMISSION + FUEL + SEATS -->
+
+                    <HBox spacing="14">
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="TRANSMISSION"
+                                    styleClass="admin-field-label" />
+
+                            <ComboBox
+                                    fx:id="transmissionBox"
+                                    maxWidth="Infinity"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="FUEL"
+                                    styleClass="admin-field-label" />
+
+                            <ComboBox
+                                    fx:id="fuelBox"
+                                    maxWidth="Infinity"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                        <VBox
+                                spacing="6"
+                                HBox.hgrow="ALWAYS">
+
+                            <Label
+                                    text="SEATS"
+                                    styleClass="admin-field-label" />
+
+                            <ComboBox
+                                    fx:id="seatsBox"
+                                    maxWidth="Infinity"
+                                    styleClass="admin-input" />
+
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- STATUS -->
+
+                    <VBox spacing="6">
+
+                        <Label
+                                text="STATUS"
+                                styleClass="admin-field-label" />
+
+                        <ComboBox
+                                fx:id="statusBox"
+                                maxWidth="Infinity"
+                                styleClass="admin-input" />
+
+                    </VBox>
+
+                    <HBox spacing="14">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="CURRENT MILEAGE" styleClass="admin-field-label" />
+                            <TextField fx:id="mileageField" promptText="e.g. 45210" styleClass="admin-input" />
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="NEXT SERVICE" styleClass="admin-field-label" />
+                            <DatePicker fx:id="nextServiceDatePicker" maxWidth="Infinity" styleClass="admin-input" />
+                        </VBox>
+                    </HBox>
+
+                    <!-- DESCRIPTION -->
+
+                    <VBox spacing="6">
+
+                        <Label
+                                text="DESCRIPTION"
+                                styleClass="admin-field-label" />
+
+                        <TextArea
+                                fx:id="descriptionArea"
+                                promptText="Describe the vehicle..."
+                                prefRowCount="4"
+                                wrapText="true"
+                                styleClass="admin-text-area" />
+
+                    </VBox>
+
+                    <!-- ACTIONS -->
+
+                    <HBox
+                            spacing="10"
+                            alignment="CENTER_RIGHT">
+
+                        <Button
+                                fx:id="deleteButton"
+                                text="Delete"
+                                onAction="#deleteCar"
+                                styleClass="admin-delete-button" />
+
+                        <Button
+                                fx:id="saveButton"
+                                text="Add Vehicle"
+                                onAction="#saveCar"
+                                styleClass="admin-primary-button" />
+
+                    </HBox>
+
+                </VBox>
+
+            </ResponsiveColumns>
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

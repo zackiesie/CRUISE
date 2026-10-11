@@ -1,0 +1,28 @@
+# Java / Maven
+**/target/
+*.class
+
+# NetBeans / IDE
+**/nbproject/private/
+.idea/
+.vscode/
+*.iml
+
+# Runtime uploads
+simpleapi/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / local environment
+.env
+.env.*
+!.env.example
+*.jks
+*.p12
+*.pem
+
+# Local design review renders and original source snapshots
+.design-review/
+.design-backup/

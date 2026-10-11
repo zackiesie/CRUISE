@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        stylesheets="@styles.css"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.example.simpleclient.AdminBookingsController">
+
+    <content>
+
+        <VBox
+                spacing="25"
+                styleClass="admin-page">
+
+            <padding>
+                <Insets
+                        top="35"
+                        right="40"
+                        bottom="50"
+                        left="40" />
+            </padding>
+
+            <!-- HEADER -->
+
+            <HBox alignment="CENTER_LEFT">
+
+                <VBox spacing="4">
+
+                    <Label
+                            text="Bookings"
+                            styleClass="admin-page-title" />
+
+                    <Label
+                            text="Monitor customer reservations and payment status."
+                            styleClass="admin-page-subtitle" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button
+                        fx:id="refreshButton"
+                        text="↻  Refresh"
+                        onAction="#refreshBookings"
+                        styleClass="admin-refresh-button" />
+
+            </HBox>
+
+            <!-- SUMMARY -->
+
+            <HBox spacing="18">
+
+                <VBox
+                        spacing="8"
+                        HBox.hgrow="ALWAYS"
+                        styleClass="admin-stat-card">
+
+                    <Label
+                            text="TOTAL BOOKINGS"
+                            styleClass="admin-stat-title" />
+
+                    <Label
+                            fx:id="totalBookingsLabel"
+                            text="—"
+                            styleClass="admin-stat-number" />
+
+                    <Label
+                            text="All reservations"
+                            styleClass="admin-stat-description" />
+
+                </VBox>
+
+                <VBox
+                        spacing="8"
+                        HBox.hgrow="ALWAYS"
+                        styleClass="admin-stat-card">
+
+                    <Label
+                            text="PAID"
+                            styleClass="admin-stat-title" />
+
+                    <Label
+                            fx:id="paidBookingsLabel"
+                            text="—"
+                            styleClass="admin-stat-number" />
+
+                    <Label
+                            text="Successful payments"
+                            styleClass="admin-stat-description" />
+
+                </VBox>
+
+                <VBox
+                        spacing="8"
+                        HBox.hgrow="ALWAYS"
+                        styleClass="admin-stat-card">
+
+                    <Label
+                            text="ACTIVE"
+                            styleClass="admin-stat-title" />
+
+                    <Label
+                            fx:id="activeBookingsLabel"
+                            text="—"
+                            styleClass="admin-stat-number" />
+
+                    <Label
+                            text="Active rentals"
+                            styleClass="admin-stat-description" />
+
+                </VBox>
+
+            </HBox>
+
+            <!-- SEARCH / FILTER -->
+
+            <VBox
+                    spacing="14"
+                    styleClass="admin-booking-toolbar">
+
+                <HBox
+                        spacing="12"
+                        alignment="CENTER_LEFT">
+
+                    <TextField
+                            fx:id="searchField"
+                            promptText="Search customer, email, phone, booking ID or car ID..."
+                            prefWidth="390"
+                            styleClass="admin-input" />
+
+                    <ComboBox
+                            fx:id="paymentFilter"
+                            prefWidth="165"
+                            styleClass="admin-input" />
+
+                    <ComboBox
+                            fx:id="bookingFilter"
+                            prefWidth="165"
+                            styleClass="admin-input" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Label
+                            fx:id="resultCountLabel"
+                            text="0 results"
+                            styleClass="admin-result-count" />
+
+                </HBox>
+
+            </VBox>
+
+            <!-- BOOKINGS -->
+
+            <VBox
+                    fx:id="bookingContainer"
+                    spacing="14" />
+
+            <!-- STATUS -->
+
+            <Label
+                    fx:id="bookingPageStatusLabel"
+                    text="Loading..."
+                    styleClass="admin-dashboard-status" />
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

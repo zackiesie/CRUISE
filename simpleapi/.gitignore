@@ -1,0 +1,6 @@
+target/
+nbproject/private/
+uploads/
+.env
+.env.*
+!.env.example

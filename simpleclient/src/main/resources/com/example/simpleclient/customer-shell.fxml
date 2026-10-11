@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane stylesheets="@styles.css" styleClass="v4-customer-shell" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleclient.CustomerShellController">
+ <top><VBox>
+  <MenuBar styleClass="v4-utility-menu"><menus><Menu text="CRUISE"><items><MenuItem text="Dashboard" onAction="#onDashboardClicked"/><MenuItem text="Discover cars" onAction="#onDiscoverClicked"/><MenuItem text="My bookings" onAction="#onBookingsClicked"/></items></Menu><Menu text="Help"><items><MenuItem text="How CRUISE works" onAction="#showHelp"/><MenuItem text="About CRUISE" onAction="#showAbout"/></items></Menu></menus></MenuBar>
+  <HBox alignment="CENTER_LEFT" spacing="8" styleClass="v4-main-nav"><padding><Insets top="15" right="34" bottom="15" left="34"/></padding>
+   <VBox spacing="0"><Label text="CRUISE." styleClass="v4-nav-brand"/><Label text="DRIVE YOUR WAY" styleClass="v4-nav-tagline"/></VBox>
+   <Region HBox.hgrow="ALWAYS"/>
+   <Button fx:id="dashboardButton" text="HOME" onAction="#onDashboardClicked" styleClass="v4-nav-button"/>
+   <Button fx:id="discoverButton" text="FLEET" onAction="#onDiscoverClicked" styleClass="v4-nav-button"><tooltip><Tooltip text="Explore available vehicles"/></tooltip></Button>
+   <Button fx:id="bookingsButton" text="MY BOOKINGS" onAction="#onBookingsClicked" styleClass="v4-nav-button"/>
+   <Button fx:id="notificationsButton" text="ACTIVITY" onAction="#onNotificationsClicked" styleClass="v4-nav-button"/>
+   <Button fx:id="accountButton" text="ACCOUNT" onAction="#onAccountClicked" styleClass="v4-nav-button"/>
+   <Region prefWidth="10"/>
+   <Label text="●" styleClass="v4-online-dot"/><Label fx:id="loginStatusLabel" text="Guest" styleClass="v4-session-label"/>
+   <Button text="ADMIN" onAction="#openAdminConsole" styleClass="v4-admin-link"/>
+  </HBox>
+ </VBox></top>
+ <center><StackPane fx:id="contentArea" styleClass="v4-customer-content"/></center>
+</BorderPane>

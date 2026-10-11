@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        stylesheets="@styles.css"
+        styleClass="customer-page-scroll"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        id="page-bookings" fx:controller="com.example.simpleclient.CustomerBookingsController">
+
+
+    <content>
+
+        <VBox
+                spacing="25"
+                styleClass="customer-page">
+
+            <padding>
+                <Insets
+                        top="42"
+                        right="48"
+                        bottom="55"
+                        left="48" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT">
+
+                <VBox spacing="5">
+
+                    <Label
+                            text="My Bookings"
+                            styleClass="customer-page-title" />
+
+                    <Label
+                            fx:id="bookingStatusLabel"
+                            text="Loading bookings..."
+                            styleClass="customer-page-description" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button
+                        text="↻  Refresh"
+                        onAction="#onRefreshClicked"
+                        styleClass="browse-refresh-button" />
+
+            </HBox>
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    styleClass="customer-summary-card">
+
+                <VBox spacing="4">
+
+                    <Label
+                            text="YOUR RENTALS"
+                            styleClass="customer-summary-label" />
+
+                    <Label
+                            fx:id="bookingCountLabel"
+                            text="0 bookings"
+                            styleClass="customer-summary-value" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Label
+                        text="All bookings are linked to your signed-in account."
+                        styleClass="customer-summary-description" />
+
+            </HBox>
+
+            <VBox
+                    fx:id="bookingContainer"
+                    spacing="14" />
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

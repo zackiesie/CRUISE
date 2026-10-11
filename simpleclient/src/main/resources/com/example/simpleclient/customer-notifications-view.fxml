@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import java.lang.String?><?import javafx.scene.control.*?><?import javafx.scene.layout.*?>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@styles.css" styleClass="customer-page-scroll" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" id="page-activity" fx:controller="com.example.simpleclient.CustomerNotificationsController">
+
+ <content><VBox spacing="22" styleClass="customer-page"><padding><Insets top="38" right="46" bottom="55" left="46"/></padding>
+  <VBox spacing="6"><Label text="ACTIVITY CENTRE" styleClass="dash-eyebrow"/><Label text="Notifications" styleClass="dash-hero-title"/><Label text="Payment, rental and booking updates from your CRUISE account." styleClass="dash-hero-subtitle"/></VBox>
+  <Label fx:id="notificationStatusLabel" text="Loading activity..." styleClass="dash-hero-subtitle"/>
+  <VBox fx:id="notificationContainer" spacing="10"/>
+ </VBox></content>
+</ScrollPane>

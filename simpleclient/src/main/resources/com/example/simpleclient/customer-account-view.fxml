@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        stylesheets="@styles.css"
+        styleClass="customer-page-scroll"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        id="page-account" fx:controller="com.example.simpleclient.CustomerAccountController">
+
+
+    <content>
+
+        <VBox
+                spacing="26"
+                styleClass="customer-page">
+
+            <padding>
+                <Insets
+                        top="42"
+                        right="48"
+                        bottom="55"
+                        left="48" />
+            </padding>
+
+            <!-- PAGE TITLE -->
+
+            <VBox spacing="5">
+
+                <Label
+                        text="Account"
+                        styleClass="customer-page-title" />
+
+                <Label
+                        text="Manage your CRUISE customer account."
+                        styleClass="customer-page-description" />
+
+            </VBox>
+
+            <!-- HERO -->
+
+            <HBox
+                    spacing="22"
+                    alignment="CENTER_LEFT"
+                    styleClass="account-hero-card">
+
+                <StackPane
+                        minWidth="78"
+                        minHeight="78"
+                        prefWidth="78"
+                        prefHeight="78"
+                        maxWidth="78"
+                        maxHeight="78"
+                        styleClass="account-avatar">
+
+                    <Label
+                            text="●"
+                            styleClass="account-avatar-icon" />
+
+                </StackPane>
+
+                <VBox spacing="5">
+
+                    <Label
+                            text="GOOGLE ACCOUNT"
+                            styleClass="account-eyebrow" />
+
+                    <Label
+                            fx:id="accountStateLabel"
+                            text="Checking..."
+                            styleClass="account-state-title" />
+
+                    <Label
+                            fx:id="accountDescriptionLabel"
+                            maxWidth="560"
+                            wrapText="true"
+                            styleClass="account-state-description" />
+
+                </VBox>
+
+            </HBox>
+
+            <!-- PROFILE INFORMATION -->
+
+            <VBox
+                    spacing="18"
+                    maxWidth="760"
+                    styleClass="account-profile-card">
+
+                <Label
+                        text="Profile information"
+                        styleClass="account-section-title" />
+
+                <Label
+                        text="Your customer information is retrieved securely from your active CRUISE session."
+                        wrapText="true"
+                        styleClass="account-section-description" />
+
+                <Separator />
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="4">
+
+                        <Label
+                                text="NAME"
+                                styleClass="account-field-title" />
+
+                        <Label
+                                fx:id="customerNameLabel"
+                                text="Loading..."
+                                styleClass="account-field-value" />
+
+                    </VBox>
+
+                </HBox>
+
+                <Separator />
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="4">
+
+                        <Label
+                                text="EMAIL"
+                                styleClass="account-field-title" />
+
+                        <Label
+                                fx:id="customerEmailLabel"
+                                text="Loading..."
+                                styleClass="account-field-value" />
+
+                    </VBox>
+
+                </HBox>
+
+                <Separator />
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="4">
+
+                        <Label
+                                text="CUSTOMER ID"
+                                styleClass="account-field-title" />
+
+                        <Label
+                                fx:id="customerIdLabel"
+                                text="..."
+                                styleClass="account-field-value" />
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+            <!-- SESSION -->
+
+            <VBox
+                    spacing="15"
+                    maxWidth="760"
+                    styleClass="account-session-panel">
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="4">
+
+                        <Label
+                                text="SESSION"
+                                styleClass="account-field-title" />
+
+                        <Label
+                                fx:id="accountStatusLabel"
+                                text="Checking session..."
+                                styleClass="account-session-status" />
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Button
+                            fx:id="loginButton"
+                            text="Sign in with Google"
+                            onAction="#onGoogleLoginClicked"
+                            styleClass="account-google-button" />
+
+                    <Button
+                            fx:id="logoutButton"
+                            text="Sign Out"
+                            onAction="#onLogoutClicked"
+                            visible="false"
+                            managed="false"
+                            styleClass="account-logout-button" />
+
+                </HBox>
+
+            </VBox>
+
+            <!-- SECURITY INFO -->
+
+            <VBox
+                    spacing="6"
+                    maxWidth="760"
+                    styleClass="account-security-note">
+
+                <Label
+                        text="Secure customer session"
+                        styleClass="account-security-title" />
+
+                <Label
+                        text="CRUISE uses your application session token to access bookings and create payments. Your Google password is never stored by the application."
+                        wrapText="true"
+                        styleClass="account-security-description" />
+
+            </VBox>
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

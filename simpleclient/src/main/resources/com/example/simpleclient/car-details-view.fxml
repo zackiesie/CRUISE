@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        styleClass="details-scroll"
+        stylesheets="@styles.css"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        id="page-fleet" fx:controller="com.example.simpleclient.CarDetailsController">
+
+
+    <content>
+
+        <VBox
+                spacing="26"
+                styleClass="details-page">
+
+            <padding>
+                <Insets
+                        top="32"
+                        right="36"
+                        bottom="55"
+                        left="36" />
+            </padding>
+
+            <!-- TOP NAV -->
+
+            <HBox
+                    alignment="CENTER_LEFT">
+
+                <Button
+                        text="←  Back to cars"
+                        onAction="#onBackClicked"
+                        styleClass="details-back-button" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <VBox
+                        alignment="CENTER_RIGHT"
+                        spacing="2">
+
+                    <Label
+                            text="CRUISE."
+                            styleClass="browse-logo" />
+
+                    <Label
+                            text="CAR RENTAL"
+                            styleClass="browse-logo-subtitle" />
+
+                </VBox>
+
+            </HBox>
+
+            <!-- MAIN CONTENT -->
+
+            <HBox
+                    spacing="28"
+                    alignment="TOP_LEFT">
+
+                <!-- LEFT SIDE -->
+
+                <VBox
+                        spacing="20"
+                        HBox.hgrow="ALWAYS">
+
+                    <StackPane
+                            minHeight="390"
+                            prefHeight="390"
+                            styleClass="details-image-panel">
+
+                        <ImageView
+                                fx:id="carImageView"
+                                fitWidth="560"
+                                fitHeight="350"
+                                preserveRatio="true"
+                                smooth="true" />
+
+                        <Label
+                                fx:id="imagePlaceholder"
+                                text="🚘"
+                                textAlignment="CENTER"
+                                styleClass="details-placeholder" />
+
+                    </StackPane>
+
+                    <VBox
+                            spacing="13"
+                            styleClass="details-info-panel">
+
+                        <HBox
+                                alignment="CENTER_LEFT">
+
+                            <VBox spacing="5">
+
+                                <Label
+                                        fx:id="brandLabel"
+                                        text="BRAND"
+                                        styleClass="details-brand" />
+
+                                <Label
+                                        fx:id="modelLabel"
+                                        text="Model"
+                                        styleClass="details-model" />
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS" />
+
+                            <Label
+                                    fx:id="categoryLabel"
+                                    text="Sedan"
+                                    styleClass="details-category" />
+
+                        </HBox>
+
+                        <HBox
+                                spacing="10">
+
+                            <VBox
+                                    spacing="4"
+                                    styleClass="details-spec-box">
+
+                                <Label
+                                        text="TRANSMISSION"
+                                        styleClass="details-spec-title" />
+
+                                <Label
+                                        fx:id="transmissionLabel"
+                                        text="Automatic"
+                                        styleClass="details-spec-value" />
+
+                            </VBox>
+
+                            <VBox
+                                    spacing="4"
+                                    styleClass="details-spec-box">
+
+                                <Label
+                                        text="SEATS"
+                                        styleClass="details-spec-title" />
+
+                                <Label
+                                        fx:id="seatsLabel"
+                                        text="5 seats"
+                                        styleClass="details-spec-value" />
+
+                            </VBox>
+
+                            <VBox
+                                    spacing="4"
+                                    styleClass="details-spec-box">
+
+                                <Label
+                                        text="FUEL"
+                                        styleClass="details-spec-title" />
+
+                                <Label
+                                        fx:id="fuelLabel"
+                                        text="Petrol"
+                                        styleClass="details-spec-value" />
+
+                            </VBox>
+
+                        </HBox>
+
+                        <Separator />
+
+                        <Label
+                                text="About this car"
+                                styleClass="details-about-title" />
+
+                        <Label
+                                fx:id="descriptionLabel"
+                                maxWidth="700"
+                                wrapText="true"
+                                styleClass="details-description" />
+
+                    </VBox>
+
+                </VBox>
+
+                <!-- BOOKING CARD -->
+
+                <VBox
+                        spacing="17"
+                        minWidth="310"
+                        prefWidth="320"
+                        maxWidth="360"
+                        styleClass="booking-panel">
+
+                    <Label
+                            text="Book this car"
+                            styleClass="booking-title" />
+
+                    <Label
+                            text="Choose your dates and continue to secure payment."
+                            wrapText="true"
+                            styleClass="booking-description" />
+
+                    <HBox
+                            alignment="BASELINE_LEFT"
+                            spacing="5">
+
+                        <Label
+                                fx:id="priceLabel"
+                                text="RM 0.00"
+                                styleClass="booking-price" />
+
+                        <Label
+                                text="/ day"
+                                styleClass="booking-price-unit" />
+
+                    </HBox>
+
+                    <Separator />
+
+                    <VBox spacing="6">
+
+                        <Label
+                                text="PICK-UP DATE"
+                                styleClass="booking-field-label" />
+
+                        <DatePicker
+                                fx:id="startDatePicker"
+                                maxWidth="Infinity"
+                                styleClass="booking-date-picker" />
+
+                    </VBox>
+
+                    <VBox spacing="6">
+
+                        <Label
+                                text="RETURN DATE"
+                                styleClass="booking-field-label" />
+
+                        <DatePicker
+                                fx:id="endDatePicker"
+                                maxWidth="Infinity"
+                                styleClass="booking-date-picker" />
+
+                    </VBox>
+
+                    <VBox spacing="6">
+
+                        <Label
+                                text="PHONE NUMBER"
+                                styleClass="booking-field-label" />
+
+                        <TextField
+                                fx:id="phoneField"
+                                promptText="e.g. 0123456789"
+                                styleClass="booking-phone-field" />
+
+                    </VBox>
+
+                    <Separator />
+
+                    <VBox spacing="8" styleClass="booking-options-box">
+                        <Label text="EXTRAS" styleClass="booking-field-label" />
+                        <CheckBox fx:id="childSeatCheckBox" text="Child seat  ·  RM 12/day" onAction="#onOptionsChanged" styleClass="booking-option">
+                            <tooltip><Tooltip text="Add a child safety seat for the full rental period." /></tooltip>
+                        </CheckBox>
+                        <CheckBox fx:id="additionalDriverCheckBox" text="Additional driver  ·  RM 18/day" onAction="#onOptionsChanged" styleClass="booking-option">
+                            <tooltip><Tooltip text="Register an additional driver for this rental." /></tooltip>
+                        </CheckBox>
+                    </VBox>
+
+                    <VBox spacing="8" styleClass="booking-options-box">
+                        <Label text="PROTECTION PLAN" styleClass="booking-field-label" />
+                        <fx:define><ToggleGroup fx:id="protectionGroup" /></fx:define>
+                        <RadioButton fx:id="standardProtectionRadio" text="Standard  ·  Included" selected="true" toggleGroup="$protectionGroup" onAction="#onOptionsChanged" styleClass="booking-option" />
+                        <RadioButton fx:id="plusProtectionRadio" text="Plus  ·  RM 15/day" toggleGroup="$protectionGroup" onAction="#onOptionsChanged" styleClass="booking-option" />
+                        <RadioButton fx:id="premiumProtectionRadio" text="Premium  ·  RM 28/day" toggleGroup="$protectionGroup" onAction="#onOptionsChanged" styleClass="booking-option" />
+                    </VBox>
+
+                    <HBox alignment="CENTER_LEFT">
+
+                        <VBox spacing="3">
+
+                            <Label
+                                    text="TOTAL"
+                                    styleClass="booking-total-title" />
+
+                            <Label
+                                    fx:id="rentalDaysLabel"
+                                    text="Select dates"
+                                    styleClass="booking-days" />
+
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label
+                                fx:id="totalLabel"
+                                text="RM 0.00"
+                                styleClass="booking-total" />
+
+                    </HBox>
+
+                    <Button
+                            fx:id="paymentButton"
+                            maxWidth="Infinity"
+                            text="Continue to Payment  →"
+                            onAction="#onPaymentClicked"
+                            styleClass="payment-button" />
+
+                    <Label
+                            text="Secure payment powered by Stripe"
+                            maxWidth="Infinity"
+                            alignment="CENTER"
+                            styleClass="stripe-note" />
+
+                    <Label
+                            fx:id="statusLabel"
+                            text="Ready to book"
+                            maxWidth="Infinity"
+                            wrapText="true"
+                            alignment="CENTER"
+                            styleClass="details-status" />
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

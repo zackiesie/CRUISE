@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane
+        fitToWidth="true"
+        hbarPolicy="NEVER"
+        stylesheets="@styles.css"
+        styleClass="browse-scroll"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        id="page-fleet" fx:controller="com.example.simpleclient.BrowseCarsController">
+
+
+    <content>
+
+        <VBox
+                spacing="28.0"
+                styleClass="browse-page">
+
+            <padding>
+                <Insets
+                        top="38.0"
+                        right="48.0"
+                        bottom="60.0"
+                        left="48.0" />
+            </padding>
+
+            <!-- ==========================================
+                 TOP BAR
+                 ========================================== -->
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="15.0">
+
+                <VBox spacing="4.0">
+
+                    <Label
+                            text="The fleet"
+                            styleClass="browse-logo" />
+
+                    <Label
+                            text="FIND YOUR NEXT DRIVE"
+                            styleClass="browse-logo-subtitle" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <StackPane
+                        styleClass="browse-account-pill">
+
+                    <HBox
+                            alignment="CENTER"
+                            spacing="8.0">
+
+                        <Label
+                                text="●"
+                                styleClass="browse-online-dot" />
+
+                        <Label
+                                text="Ready to explore"
+                                styleClass="browse-account-text" />
+
+                    </HBox>
+
+                </StackPane>
+
+            </HBox>
+
+            <!-- ==========================================
+                 HERO
+                 ========================================== -->
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    styleClass="discover-hero">
+
+                <VBox
+                        spacing="8.0">
+
+                    <Label
+                            text="Find a car that fits"
+                            styleClass="discover-title" />
+
+                    <Label
+                            text="your journey."
+                            styleClass="discover-title-accent" />
+
+                    <Label
+                            text="Browse available vehicles and choose the perfect ride for your next trip."
+                            wrapText="true"
+                            maxWidth="570.0"
+                            styleClass="discover-description" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <VBox
+                        alignment="CENTER_RIGHT"
+                        spacing="3.0">
+
+                    <Label
+                            text="Easy booking"
+                            styleClass="hero-feature-title" />
+
+                    <Label
+                            text="Secure Stripe payment"
+                            styleClass="hero-feature-text" />
+
+                </VBox>
+
+            </HBox>
+
+            <!-- QUICK JOURNEY STRIP -->
+            <HBox spacing="12.0" styleClass="journey-strip">
+                <VBox spacing="4.0" HBox.hgrow="ALWAYS" styleClass="journey-step">
+                    <Label text="01  CHOOSE" styleClass="journey-step-number" />
+                    <Label text="Find your ideal car" styleClass="journey-step-title" />
+                </VBox>
+                <VBox spacing="4.0" HBox.hgrow="ALWAYS" styleClass="journey-step">
+                    <Label text="02  BOOK &amp; PAY" styleClass="journey-step-number" />
+                    <Label text="Secure checkout with Stripe" styleClass="journey-step-title" />
+                </VBox>
+                <VBox spacing="4.0" HBox.hgrow="ALWAYS" styleClass="journey-step">
+                    <Label text="03  DRIVE" styleClass="journey-step-number" />
+                    <Label text="Your confirmed trip is ready" styleClass="journey-step-title" />
+                </VBox>
+            </HBox>
+
+            <!-- ==========================================
+                 SEARCH
+                 ========================================== -->
+
+            <VBox
+                    spacing="15.0"
+                    styleClass="search-panel">
+
+                <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="12.0">
+
+                    <VBox
+                            HBox.hgrow="ALWAYS"
+                            spacing="6.0">
+
+                        <Label
+                                text="SEARCH VEHICLES"
+                                styleClass="browse-field-label" />
+
+                        <TextField
+                                fx:id="searchField"
+                                maxWidth="Infinity"
+                                promptText="Search Toyota, Honda, Vios..."
+                                styleClass="browse-search-field" />
+
+                    </VBox>
+
+                    <Button
+                            onAction="#onRefreshClicked"
+                            text="↻  Refresh"
+                            styleClass="browse-refresh-button" />
+
+                </HBox>
+
+                <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="8.0">
+
+                    <Label
+                            text="Type"
+                            styleClass="filter-label" />
+
+                    <Button
+                            fx:id="allButton"
+                            onAction="#onAllClicked"
+                            text="All"
+                            styleClass="filter-button" />
+
+                    <Button
+                            fx:id="sedanButton"
+                            onAction="#onSedanClicked"
+                            text="Sedan"
+                            styleClass="filter-button" />
+
+                    <Button
+                            fx:id="suvButton"
+                            onAction="#onSuvClicked"
+                            text="SUV"
+                            styleClass="filter-button" />
+
+                    <Button
+                            fx:id="mpvButton"
+                            onAction="#onMpvClicked"
+                            text="MPV"
+                            styleClass="filter-button" />
+
+                </HBox>
+
+            </VBox>
+
+            <!-- ==========================================
+                 RESULTS HEADER
+                 ========================================== -->
+
+            <HBox
+                    alignment="CENTER_LEFT">
+
+                <VBox spacing="3.0">
+
+                    <Label
+                            text="Explore the collection"
+                            styleClass="browse-section-title" />
+
+                    <Label
+                            fx:id="resultCountLabel"
+                            text="Loading cars..."
+                            styleClass="browse-section-subtitle" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Label
+                        fx:id="browseStatusLabel"
+                        text="Connecting..."
+                        styleClass="browse-status" />
+
+            </HBox>
+
+            <!-- ==========================================
+                 CAR CARDS
+                 ========================================== -->
+
+            <FlowPane
+                    fx:id="carContainer"
+                    alignment="TOP_LEFT"
+                    hgap="20.0"
+                    vgap="20.0"
+                    prefWrapLength="1000.0" />
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

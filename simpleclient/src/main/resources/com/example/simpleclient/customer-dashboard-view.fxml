@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.example.simpleclient.VehicleArtwork?>
+<ScrollPane fx:id="dashboardScroll" fitToWidth="true" hbarPolicy="NEVER" stylesheets="@styles.css" styleClass="v4-page-scroll" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" id="page-home" fx:controller="com.example.simpleclient.CustomerDashboardController">
+
+ <content><VBox spacing="0" styleClass="v4-home-page">
+  <HBox alignment="CENTER_LEFT" spacing="28" styleClass="v4-home-hero">
+   <VBox minWidth="370" prefWidth="460" maxWidth="520" spacing="14" HBox.hgrow="ALWAYS">
+    <Label fx:id="heroKickerLabel" text="THE CRUISE EXPERIENCE" styleClass="v4-hero-kicker"/>
+    <Label text="Make room for&#10;the journey." wrapText="true" styleClass="premium-hero-heading"/>
+    <Label fx:id="greetingLabel" text="Welcome to CRUISE" wrapText="true" styleClass="v4-hero-title"/>
+    <Label fx:id="subtitleLabel" text="Your next drive starts here." wrapText="true" styleClass="v4-hero-copy"/>
+    <Text fx:id="heroBodyText" text="City streets or a weekend escape. Find a drive that feels like you." wrappingWidth="410" styleClass="v4-hero-text"/>
+    <HBox spacing="10"><Button text="Explore the fleet  →" onAction="#browseCars" styleClass="v4-hero-primary"/><Button text="My bookings" onAction="#viewAllBookings" styleClass="v4-hero-secondary"/></HBox>
+    <HBox spacing="6" alignment="CENTER_LEFT" styleClass="v5-slide-dots">
+     <Button text="←" onAction="#previousSlide" accessibleText="Previous slide" styleClass="premium-slide-control"/>
+     <Button fx:id="slideDot1" text="01" onAction="#firstSlide" accessibleText="Show first slide" styleClass="v5-slide-dot-active"/>
+     <Button fx:id="slideDot2" text="02" onAction="#secondSlide" accessibleText="Show second slide" styleClass="v5-slide-dot"/>
+     <Button fx:id="slideDot3" text="03" onAction="#thirdSlide" accessibleText="Show third slide" styleClass="v5-slide-dot"/>
+     <Button text="→" onAction="#nextSlide" accessibleText="Next slide" styleClass="premium-slide-control"/>
+     <Button fx:id="pauseButton" text="Pause" onAction="#toggleSlideshow" accessibleText="Pause slideshow" styleClass="premium-slide-control"/>
+    </HBox>
+   </VBox>
+   <StackPane fx:id="heroVisual" minWidth="320" prefWidth="440" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="v5-hero-visual">
+    <VBox alignment="CENTER_LEFT" spacing="12">
+     <HBox alignment="CENTER_LEFT"><Label fx:id="heroVisualNumber" text="01 / THE EVERYDAY ESCAPE" styleClass="v5-hero-number"/><Region HBox.hgrow="ALWAYS"/><Label text="CRUISE / EDITION" styleClass="v4-hero-art-copy"/></HBox>
+     <VehicleArtwork prefHeight="205" minHeight="170" maxHeight="230"/>
+     <Region styleClass="premium-art-line"/>
+     <Label fx:id="heroVisualTitle" text="A little further. A little freer." wrapText="true" styleClass="v4-hero-art-brand"/>
+     <Label fx:id="heroVisualCaption" text="CHOOSE • RESERVE • DRIVE" wrapText="true" styleClass="v4-hero-art-copy"/>
+    </VBox>
+   </StackPane>
+  </HBox>
+  <VBox spacing="28" styleClass="v4-home-content"><padding><Insets top="36" right="40" bottom="32" left="40"/></padding>
+   <HBox alignment="CENTER_LEFT"><VBox spacing="5"><Label text="YOUR JOURNEY" styleClass="v4-section-kicker"/><Label text="A clear view of what's next." styleClass="v4-section-title"/></VBox><Region HBox.hgrow="ALWAYS"/><Label text="YOUR RENTAL OVERVIEW" styleClass="v4-muted-caps"/></HBox>
+   <HBox styleClass="v4-stat-strip">
+    <VBox HBox.hgrow="ALWAYS" styleClass="v4-stat-item"><Label text="ACTIVE / UPCOMING" styleClass="v4-stat-label"/><Label fx:id="activeCountLabel" text="—" styleClass="v4-stat-value"/><Label text="rentals in progress" styleClass="v4-stat-note"/></VBox>
+    <VBox HBox.hgrow="ALWAYS" styleClass="v4-stat-item"><Label text="TOTAL BOOKINGS" styleClass="v4-stat-label"/><Label fx:id="totalTripsLabel" text="—" styleClass="v4-stat-value"/><Label text="your rental history" styleClass="v4-stat-note"/></VBox>
+    <VBox HBox.hgrow="ALWAYS" styleClass="v4-stat-item-last"><Label text="BOOKING VALUE" styleClass="v4-stat-label"/><Label fx:id="spentLabel" text="—" styleClass="v4-stat-value"/><Label text="paid / refunded value" styleClass="v4-stat-note"/></VBox>
+   </HBox>
+   <HBox spacing="24" alignment="TOP_LEFT">
+    <VBox spacing="18" minWidth="0" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="v4-next-drive">
+     <HBox alignment="CENTER_LEFT" spacing="12"><Label text="NEXT DRIVE" styleClass="v4-dark-kicker"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="bookingStatusLabel" text="CHECKING" wrapText="true" styleClass="v4-dark-pill"/></HBox>
+     <Region VBox.vgrow="ALWAYS"/>
+     <Label fx:id="bookingTitleLabel" text="Loading..." wrapText="true" styleClass="v4-next-title"/>
+     <Label fx:id="bookingDatesLabel" text="" wrapText="true" styleClass="v4-next-dates"/>
+     <Label fx:id="bookingAmountLabel" text="" wrapText="true" styleClass="v4-next-amount"/>
+     <Button fx:id="featuredButton" text="View booking  →" onAction="#viewFeaturedBooking" styleClass="v4-dark-button"/>
+    </VBox>
+    <VBox spacing="0" minWidth="310" prefWidth="365" styleClass="v4-process">
+     <Label text="FROM FIRST CLICK TO OPEN ROAD" styleClass="v4-section-kicker"/>
+     <VBox styleClass="v4-process-row"><Label text="01 / DISCOVER" styleClass="v4-process-number"/><Label text="Find your kind of drive" styleClass="v4-process-title"/><Label text="Compare vehicles, specifications and daily rates." wrapText="true" styleClass="v4-process-copy"/></VBox>
+     <VBox styleClass="v4-process-row"><Label text="02 / RESERVE" styleClass="v4-process-number"/><Label text="Make it yours" styleClass="v4-process-title"/><Label text="Choose dates and extras, then pay securely." wrapText="true" styleClass="v4-process-copy"/></VBox>
+     <VBox styleClass="v4-process-row-last"><Label text="03 / ENJOY" styleClass="v4-process-number"/><Label text="Take the scenic route" styleClass="v4-process-title"/><Label text="Keep your booking and rental progress close." wrapText="true" styleClass="v4-process-copy"/></VBox>
+    </VBox>
+   </HBox>
+   <HBox alignment="CENTER_LEFT" styleClass="premium-footer"><Label text="CRUISE.  /  DRIVE YOUR WAY" styleClass="premium-footer-copy"/><Region HBox.hgrow="ALWAYS"/><Label text="Your next chapter starts on the road." styleClass="premium-footer-copy"/></HBox>
+  </VBox>
+ </VBox></content>
+</ScrollPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<BorderPane stylesheets="@styles.css" styleClass="v4-admin-login-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleclient.AdminLoginController">
+  <center>
+    <HBox styleClass="v4-admin-login-shell">
+      <VBox HBox.hgrow="ALWAYS" minWidth="430" spacing="22" styleClass="v4-admin-login-visual">
+        <padding><Insets top="48" right="40" bottom="42" left="40"/></padding>
+        <HBox alignment="CENTER_LEFT"><Label text="CRUISE." styleClass="v4-login-wordmark"/><Region HBox.hgrow="ALWAYS"/><Label text="OPERATIONS / 2026" styleClass="v4-login-kicker"/></HBox>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Label text="CONTROL THE FLEET.&#10;OWN THE JOURNEY." wrapText="true" styleClass="v4-login-hero"/>
+        <Text text="One workspace for fleet availability, customer rentals, returns, maintenance and performance." wrappingWidth="340" styleClass="v4-login-copy"/>
+        <HBox spacing="22" styleClass="v4-login-metrics">
+          <VBox spacing="3"><Label text="LIVE" styleClass="v4-login-metric-value"/><Label text="FLEET OPERATIONS" styleClass="v4-login-metric-label"/></VBox>
+          <VBox spacing="3"><Label text="24/7" styleClass="v4-login-metric-value"/><Label text="BOOKING VISIBILITY" styleClass="v4-login-metric-label"/></VBox>
+          <VBox spacing="3"><Label text="ONE" styleClass="v4-login-metric-value"/><Label text="CONTROL CENTRE" styleClass="v4-login-metric-label"/></VBox>
+        </HBox>
+      </VBox>
+      <VBox minWidth="420" prefWidth="500" maxWidth="560" alignment="CENTER" styleClass="v4-admin-login-form-panel">
+        <VBox maxWidth="390" spacing="20">
+          <Label text="ADMIN ACCESS" styleClass="v4-form-eyebrow"/>
+          <Label text="Welcome back." styleClass="v4-form-title"/>
+          <Label text="Sign in to the CRUISE operations console." styleClass="v4-form-copy"/>
+          <Region prefHeight="8"/>
+          <VBox spacing="8"><Label text="USERNAME" styleClass="v4-field-label"/><TextField fx:id="usernameField" promptText="Enter admin username" styleClass="v4-input"/></VBox>
+          <VBox spacing="8"><Label text="PASSWORD" styleClass="v4-field-label"/><PasswordField fx:id="passwordField" promptText="Enter password" onAction="#login" styleClass="v4-input"/></VBox>
+          <Label fx:id="loginStatusLabel" wrapText="true" styleClass="admin-login-status"/>
+          <Button text="ENTER OPERATIONS CONSOLE  →" onAction="#login" maxWidth="Infinity" styleClass="v4-login-primary"/>
+          <Button text="←  RETURN TO CUSTOMER EXPERIENCE" onAction="#backToCustomer" maxWidth="Infinity" styleClass="v4-login-secondary"/>
+          <Region prefHeight="14"/>
+          <Label text="AUTHORIZED PERSONNEL ONLY  •  CRUISE RENTAL SYSTEM" wrapText="true" styleClass="v4-login-footnote"/>
+        </VBox>
+      </VBox>
+    </HBox>
+  </center>
+</BorderPane>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        prefWidth="1180"
+        prefHeight="760"
+        stylesheets="@styles.css"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.example.simpleclient.AdminShellController">
+
+    <left>
+
+        <VBox
+                prefWidth="235"
+                minWidth="235"
+                maxWidth="235"
+                spacing="8"
+                styleClass="admin-sidebar">
+
+            <padding>
+                <Insets
+                        top="30"
+                        right="18"
+                        bottom="25"
+                        left="18" />
+            </padding>
+
+            <!-- BRAND -->
+
+            <VBox spacing="2">
+
+                <Label
+                        text="CRUISE"
+                        styleClass="admin-brand" />
+
+                <Label
+                        text="ADMIN CONSOLE"
+                        styleClass="admin-brand-subtitle" />
+
+            </VBox>
+
+            <Region prefHeight="35" />
+
+            <!-- NAVIGATION -->
+
+            <Label
+                    text="MANAGEMENT"
+                    styleClass="admin-nav-section" />
+
+            <Button
+                    fx:id="dashboardButton"
+                    text="▦   Dashboard"
+                    onAction="#showDashboard"
+                    maxWidth="Infinity"
+                    styleClass="admin-nav-button" />
+
+            <Button
+                    fx:id="carsButton"
+                    text="▣   Car Management"
+                    onAction="#showCars"
+                    maxWidth="Infinity"
+                    styleClass="admin-nav-button" />
+
+            <Button
+                    fx:id="bookingsButton"
+                    text="◫   Bookings"
+                    onAction="#showBookings"
+                    maxWidth="Infinity"
+                    styleClass="admin-nav-button" />
+
+            <Button fx:id="customersButton" text="●   Customers" onAction="#showCustomers" maxWidth="Infinity" styleClass="admin-nav-button" />
+            <Button fx:id="reportsButton" text="▤   Reports" onAction="#showReports" maxWidth="Infinity" styleClass="admin-nav-button" />
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- BOTTOM -->
+
+            <VBox
+                    spacing="10"
+                    styleClass="admin-sidebar-bottom">
+
+                <Label
+                        text="ADMIN MODE"
+                        styleClass="admin-mode-label" />
+
+                <Label
+                        text="Manage vehicles and customer rentals."
+                        wrapText="true"
+                        styleClass="admin-mode-description" />
+
+                <Button
+                        text="←  Customer App"
+                        onAction="#backToCustomer"
+                        maxWidth="Infinity"
+                        styleClass="admin-customer-button" />
+
+                <Button
+                        text="Logout"
+                        onAction="#logoutAdmin"
+                        maxWidth="Infinity"
+                        styleClass="admin-customer-button" />
+
+            </VBox>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <StackPane
+                fx:id="contentArea"
+                styleClass="admin-content" />
+
+    </center>
+
+</BorderPane>
